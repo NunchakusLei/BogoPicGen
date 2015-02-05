@@ -102,7 +102,9 @@ public class BogoPicGenActivity extends Activity {
 
     private Bitmap ourBMP;
     private void setBogoPic() {
-    	Toast.makeText(this, "Generating Photo", Toast.LENGTH_LONG).show();
+    	Toast info = Toast.makeText(this, "Generating Photo", Toast.LENGTH_LONG);
+    	info.show();
+    	info.cancel();
 		ImageButton button = (ImageButton)findViewById(R.id.TakeAPhoto);
 		ourBMP = BogoPicGen.generateBitmap(400, 400);
 		button.setImageBitmap(ourBMP);
@@ -121,7 +123,9 @@ public class BogoPicGenActivity extends Activity {
     	try {
     		if (intent.getExtras() != null) {    
     			if (cancel) {
-    				Toast.makeText(this, "Photo Cancelled!", Toast.LENGTH_LONG).show();
+    				Toast info = Toast.makeText(this, "Photo Cancelled!", Toast.LENGTH_LONG);
+    				info.show();
+    				info.cancel();
     				setResult(RESULT_CANCELED);
     				finish();
     				return;
